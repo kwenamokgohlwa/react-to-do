@@ -20,10 +20,14 @@ class App extends Component {
   }
 
   deleteToDo(index) {
-    const todos = this.state.todos.slice();
-    let newTodo = todos.slice(0, index);
-    newTodo = newTodo.concat(todos.slice(index + 1));
-    this.setState({ todos: newTodo });
+    //With Slice
+    //const todos = this.state.todos.slice();
+    //let newTodo = todos.slice(0, index);
+    //newTodo = newTodo.concat(todos.slice(index + 1));
+
+    //With Filter
+    const todos = this.state.todos.filter(todo => todo !== this.state.todos[index]);
+    this.setState({ todos: todos });
   }
 
   handleSubmit(e) {
